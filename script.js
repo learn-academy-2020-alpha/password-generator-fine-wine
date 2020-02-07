@@ -1,41 +1,38 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// array to store a-z
+let letters = "abcdefghigklmnopqrstuvwxyz";
+let alphabetArray = letters.split("");
+var passwordText = document.querySelector("#password");
 
 // Write password to the #password input
 function writePassword() {
-    // pick a number frm 8 - 128
+    // stores password length input
     let pwLength = passwordLength();
     // make user pick lower or uppercase options
-    let isLowerCase = confirm("Would you like to use lowercase?");
-    let isUpperCase = confirm("Would you like to use uppercase?");
+    let isLowerCase = confirm("Would you like to include lowercase letters in your password?");
+    let isUpperCase = confirm("Would you like to include uppercase letters in your password?");
     // if user picks no to both lowercase AND uppercase
     // an alert along with more prompts will appear
     while (isLowerCase === false && isUpperCase === false) {
         alert("Please pick one or both of the options.")
         isLowerCase = confirm("Would you like to use lowercase?");
-        // user to pick yes/no to uppercase
         isUpperCase = confirm("Would you like to use uppercase?");
     }
 
+    // stores generaged password into the variable password
     // var password = generatePassword();
-    // generatePassword(length);
-    var passwordText = document.querySelector("#password");
 
+    // sets the password within the HTML file
     passwordText.value = password;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 // create generatePassword function below
 function generatePassword(length) {
-    // array to store a-z
-    let letters = "abcdefghigklmnopqrstuvwxyz";
-    let alphabetArray = letters.split("");
-
     console.log(alphabetArray[0].toUpperCase());
     // toUpperCase, toLowerCase
     // randomize Math.random, Math.floor
+    // .charAt()
 }
 
 // function to ask for length of password
@@ -50,3 +47,6 @@ function passwordLength() {
     }
     return newResult;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
